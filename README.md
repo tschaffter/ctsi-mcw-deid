@@ -4,15 +4,34 @@ NLP Software to deidentify protected health information from clinical notes.
 Jay Urbain, PhD  
 jay.urbain@gmail.com
 
-##### Build app
+## Build
+### Using Eclipse IDE
 
 1. Clone this repo
 2. In Eclipse IDE, import the project (Import existing projects)
 3. Right click on `build.xml` > Run As > Ant Build
 
 ```
-java -jar ctsi-mcw-deid.jar --version
+$ java -jar ctsi-mcw-deid.jar --version
 ERROR -- arguments: inputfile outputfile
+```
+
+### Using Apache Ant
+
+On Mac OS:
+
+1. Install Ant (on Mac OS: `brew install ant`)
+2. Run `ant` from the project folder
+
+```
+$ ant
+Buildfile: /Users/tschaffter/eclipse-workspace/ctsi-mcw-deid/build.xml
+
+create_run_jar:
+      [jar] Building jar: /Users/tschaffter/eclipse-workspace/ctsi-mcw-deid/ctsi-mcw-deid.jar
+
+BUILD SUCCESSFUL
+Total time: 31 second
 ```
 
 ##### 1) Use case: Read identified records from tab-delimited file system (local host or HDFS), write deidentified tab-delimited records to file system (local host or HDFS). Runs deidentificaiton software as part of this application.
