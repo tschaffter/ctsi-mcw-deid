@@ -4,6 +4,17 @@ NLP Software to deidentify protected health information from clinical notes.
 Jay Urbain, PhD  
 jay.urbain@gmail.com
 
+##### Build app
+
+1. Clone this repo
+2. In Eclipse IDE, import the project (Import existing projects)
+3. Right click on `build.xml` > Run As > Ant Build
+
+```
+java -jar ctsi-mcw-deid.jar --version
+ERROR -- arguments: inputfile outputfile
+```
+
 ##### 1) Use case: Read identified records from tab-delimited file system (local host or HDFS), write deidentified tab-delimited records to file system (local host or HDFS). Runs deidentificaiton software as part of this application.
 
 Example:
@@ -46,8 +57,8 @@ Input -> (no header: id, pat_id_enc, date_shift, patient_num, pat_enc_csn_id, en
 Output -> (patient_number, encounter_num, contact_date, text)
 
 ##### Main class processing: deidentification.Deidentification
-1) Blacklist processing (deidentification.mcw.DeidentificationRegexMCW) 
-2) Pre-processing and regular expression processing. MCW implementation 
+1) Blacklist processing (deidentification.mcw.DeidentificationRegexMCW)
+2) Pre-processing and regular expression processing. MCW implementation
 3) deidentification.mcw.DeidentificationRegexMCW) removes invalid character encodings,
 places spaces between mixed capitalization terms and mixed alpha numerics; and
 de-id's dates, MRN/ids, phone, email, and addresses.
@@ -56,11 +67,11 @@ de-id's dates, MRN/ids, phone, email, and addresses.
 5) Output fully de-id'd text with identifier included with input file to tab-delimited output file (no header)
 
 ##### 2) Use case: Read identifed records from tab-delimited file system (local host or HDFS), write deidentified tab-delimited records to file system (local host or HDFS). Sumbits record to be deidentified to web service in JSON format. Execute as MapReduce 2.0/YARN application.    
-     
+
 ##### 3) Use case: Read identifed records from tab-delimited file system (local host or HDFS), write deidentified tab-delimited records to file system (local host or HDFS). Sumbits record to be deidentified to web service in JSON format. Assumes the following web service is running.
 Only search engine input format is supported
- 
+
 - [Deidentification Web service](https://github.com/jayurbain/ctsi-mcw-deid-service.git)   
 
 ### License
-"CTSI MCW Deidentification" is licensed under the GNU General Public License (v3 or later; in general "CTSI MCW Deidentification" code is GPL v2+, but "CTSI MCW Deidentification" uses several Apache-licensed libraries, and so the composite is v3+). Note that the license is the full GPL, which allows many free uses, but not its use in proprietary software which is distributed to others. For distributors of proprietary software, "CTSI MCW Deidentification" is also available from CTSI of Southeast Wisconsin under a commercial licensing You can contact us at jay.urbain@gmail.com. 
+"CTSI MCW Deidentification" is licensed under the GNU General Public License (v3 or later; in general "CTSI MCW Deidentification" code is GPL v2+, but "CTSI MCW Deidentification" uses several Apache-licensed libraries, and so the composite is v3+). Note that the license is the full GPL, which allows many free uses, but not its use in proprietary software which is distributed to others. For distributors of proprietary software, "CTSI MCW Deidentification" is also available from CTSI of Southeast Wisconsin under a commercial licensing You can contact us at jay.urbain@gmail.com.
